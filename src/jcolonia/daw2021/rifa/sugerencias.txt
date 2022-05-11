@@ -1,0 +1,4 @@
+- Acoplar una vista de menú
+- Programar el sorteo
+- Incorporar un histórico de sorteos
+- Incorporar un contador de «aciertos»
