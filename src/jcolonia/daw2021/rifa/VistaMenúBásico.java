@@ -26,8 +26,7 @@ public class VistaMenúBásico extends Vista{
 		String lineaTexto;
 		int número = 0;
 		boolean numEsCorrecto = false;
-
-		out.println("Introduce una de las opciones (a ser posible válida 😊)");
+		
 		while (!numEsCorrecto) {
 			try {
 				lineaTexto = getEntrada().nextLine();
