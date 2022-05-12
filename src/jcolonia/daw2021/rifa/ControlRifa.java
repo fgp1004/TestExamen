@@ -18,7 +18,7 @@ public class ControlRifa {
 //	- entrada: Scanner
 
 	VistaMenúBásico vista;
-	private static final String[] OPCIONES_MENÚ_PRINCIPAL = { "Elegir objeto", "Salir" };
+	private static final String[] OPCIONES_MENÚ_PRINCIPAL = { "Elegir objeto", "Ver histórico", "Salir" };
 
 	public ControlRifa(Scanner entrada) {
 		this.entrada = entrada;
@@ -52,6 +52,9 @@ public class ControlRifa {
 				gestiónSorteo();
 				break;
 			case 2:
+				históricoSorteo();
+				break;
+			case 3:
 				fin = true;
 				Vista.mostrarTexto("\n\n«Programa finalizado»\n\n");
 				break;
@@ -88,8 +91,26 @@ public class ControlRifa {
 			mensaje = "   ** ¡Suerte que te libraste!";
 		}
 		Vista.mostrarTexto(mensaje);
+		listaFetiches.add(objetoElegido);
+		listaFetiches.add(objetoGanador);
 
 		vistaSorteo.pedirContinuar();
+	}
+	
+	public void históricoSorteo() {
+		String propio= new String();
+		String generado= new String(); 
+		String resultado= new String();
+		for(int i=0; i < listaFetiches.size();i=i+2) {
+			propio=String.format("%s",listaFetiches.get(i));
+			generado=String.format("%s",listaFetiches.get(i+1));
+			if(propio.equals(generado)) {
+				resultado="acierto";
+			}else {
+				resultado="fallo";
+			}
+			Vista.mostrarTexto(String.format("Objeto elegido: %s, Objeto generado: %s, Resultado:%s",propio,generado,resultado));
+		}
 	}
 
 	public void operaciónNoImplementada() {
