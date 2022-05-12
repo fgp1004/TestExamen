@@ -13,7 +13,16 @@ public class VistaMenúBásico extends Vista{
 		this.opcionesMenúPrincipal=opcionesMenúPrincipal;
 	}
 
-	public int mostrarOpciones() {
+	public void mostrarOpciones() {
+		out.println("----------------------------------------");
+		for (int i = 0; i < opcionesMenúPrincipal.length; i++) {
+			out.printf("Opcion %d .- %s\n", i + 1, opcionesMenúPrincipal[i]);
+
+		}
+		out.println("----------------------------------------\n");
+	}
+
+	public int pedirOpción() {
 		String lineaTexto;
 		int número = 0;
 		boolean numEsCorrecto = false;
