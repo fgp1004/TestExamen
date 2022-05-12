@@ -2,6 +2,7 @@ package jcolonia.daw2021.rifa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Colección de elementos de «mal fario».
@@ -25,6 +26,12 @@ public enum Fetiche {
 	 * @see #toString()
 	 */
 	static String[] listaNombres;
+	
+	static Random rnd;
+	
+	static {
+		rnd=new Random();
+	}
 
 	/**
 	 * Devuelve el nombre del objeto en un formato limpio.<div>Ejemplo:
@@ -60,7 +67,13 @@ public enum Fetiche {
 	 * @return el objeto obtenido
 	 */
 	public static Fetiche sortear() {
-		// Código pendiente de hacer
-		throw new RuntimeException("Código pendiente, programador descuidado");
+		Fetiche objetoElegido, listaObjetos[];
+		int númObjetos;
+		
+		listaObjetos= values();
+		númObjetos=values().length;
+		
+		objetoElegido= listaObjetos[rnd.nextInt(númObjetos)];
+		return objetoElegido;
 	}
 }
